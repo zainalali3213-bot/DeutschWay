@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#173b65">
+<title>DeutschWay — تعلّم الألمانية</title>
+<style>
+:root{--navy:#173b65;--blue:#245587;--gold:#e2b34d;--bg:#f3f6fa;--ink:#17263a;--muted:#68788d;--white:#fff;--green:#23845b;--line:#e5ebf2}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Tahoma,Arial,sans-serif}
+header{background:linear-gradient(135deg,#102b4c,#245587);color:#fff;padding:24px 18px 22px;border-radius:0 0 24px 24px}
+.top{display:flex;align-items:center;justify-content:space-between}.logo{font-size:22px;font-weight:800;letter-spacing:.2px}.flag{font-size:24px}
+header h1{font-size:23px;margin:24px 0 6px}header p{margin:0;color:#dce8f4;font-size:14px;line-height:1.7}
+main{max-width:760px;margin:auto;padding:16px 14px 92px}
+.levels{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:-2px}
+.level{border:1px solid var(--line);background:#fff;border-radius:13px;padding:12px 4px;text-align:center;font-weight:800;color:var(--navy);cursor:pointer}
+.level.active{background:#e8f0fa;border:2px solid var(--blue);padding:11px 3px}
+.section-title{font-size:18px;font-weight:800;margin:22px 2px 12px}
+.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:11px}
+.tile{background:#fff;border:1px solid var(--line);border-radius:17px;padding:17px 14px;min-height:105px;text-align:right;cursor:pointer;box-shadow:0 3px 12px #1d35570a}
+.tile .emoji{font-size:25px}.tile strong{display:block;margin-top:9px;font-size:15px}.tile small{display:block;color:var(--muted);margin-top:4px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:17px;margin-top:14px;box-shadow:0 3px 14px #1d355708}
+.hidden{display:none!important}.back{border:0;background:#eaf0f7;color:var(--navy);border-radius:10px;padding:9px 13px;font-weight:700;cursor:pointer}
+h2{font-size:20px;margin:8px 0 6px}.muted{color:var(--muted);font-size:13px;line-height:1.7}
+.word-card{background:#f7f9fc;border:1px solid var(--line);border-radius:16px;padding:20px;text-align:center;margin:14px 0}
+.de{font-size:28px;font-weight:800;color:var(--navy);direction:ltr}.ar{font-size:20px;margin-top:10px}.example{background:#edf4fb;border-radius:12px;padding:13px;margin-top:14px;line-height:1.8}
+button.primary{background:var(--navy);color:#fff;border:0;border-radius:12px;padding:12px 16px;font-weight:700;cursor:pointer;width:100%;margin-top:10px}
+button.secondary{background:#edf2f8;color:var(--navy);border:0;border-radius:11px;padding:11px 14px;font-weight:700;cursor:pointer;margin-top:10px}
+.actions{display:flex;gap:9px}.actions button{flex:1}
+button.voice{background:#e8f0fa;color:#173b65;border:1px solid #d4e1ef;border-radius:11px;padding:11px 14px;font-weight:700;cursor:pointer;margin-top:10px}
+.item{padding:13px 0;border-bottom:1px solid var(--line);line-height:1.7}.item:last-child{border:0}
+.question{font-weight:800;line-height:1.7;margin:12px 0}.option{display:block;width:100%;text-align:right;background:#f6f8fb;border:1px solid var(--line);padding:12px;border-radius:11px;margin:8px 0;cursor:pointer;font:inherit}.option.correct{border-color:#23845b;background:#eaf7f0}.option.wrong{border-color:#c34b4b;background:#fff0f0}
+nav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:9px 5px calc(9px + env(safe-area-inset-bottom));z-index:5}
+nav button{border:0;background:none;color:var(--muted);font:inherit;font-size:11px;display:flex;flex-direction:column;gap:4px;align-items:center;cursor:pointer}nav button b{font-size:19px}nav button.active{color:var(--navy);font-weight:800}
+footer{text-align:center;color:var(--muted);font-size:11px;padding:18px}
+@media(min-width:600px){.tiles{grid-template-columns:repeat(4,1fr)}}
+</style>
+
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#245587">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+<header>
+ <div class="top"><div class="logo">DeutschWay</div><div class="flag">🇩🇪</div></div>
+ <h1>Hallo! أهلاً بك 👋</h1>
+ <p>رحلتك لتعلّم اللغة الألمانية، خطوة بخطوة ومن A1 إلى B2.</p>
+</header>
+<main>
+ <section id="home">
+  <div class="section-title">اختر مستواك</div>
+  <div class="levels" id="levels">
+   <button class="level active" data-level="A1">A1</button><button class="level" data-level="A2">A2</button><button class="level" data-level="B1">B1</button><button class="level" data-level="B2">B2</button>
+  </div>
+  <div class="section-title">ماذا تريد أن تتعلّم اليوم؟</div>
+  <div class="tiles">
+   <button class="tile" data-open="vocab"><span class="emoji">📚</span><strong>المفردات</strong><small>كلمات ومعاني وأمثلة</small></button>
+   <button class="tile" data-open="talk"><span class="emoji">💬</span><strong>المحادثة</strong><small>حوارات من الحياة اليومية</small></button>
+   <button class="tile" data-open="grammar"><span class="emoji">✍️</span><strong>القواعد</strong><small>شرح مبسّط بالعربية</small></button>
+   <button class="tile" data-open="quiz"><span class="emoji">🎯</span><strong>اختبر نفسك</strong><small>أسئلة واختيارات</small></button>
+  </div>
+  <div class="panel"><strong>💡 نصيحة اليوم</strong><p class="muted">تعلّم خمس كلمات جديدة كل يوم، واستخدم كل كلمة في جملة من عندك. الاستمرار أهم من السرعة!</p></div>
+ </section>
+ <section id="vocab" class="hidden">
+  <button class="back" data-home>← الرئيسية</button><h2>📚 المفردات</h2><p class="muted">اضغط على الزر لإظهار مثال ألماني وترجمته.</p>
+  <div class="word-card"><div class="muted" id="wordCount"></div><div class="de" id="wordDe">das Haus</div><div class="ar" id="wordAr">البيت</div><button class="voice" id="speakWord">🔊 اسمع النطق الألماني</button><div class="example hidden" id="wordExample"></div></div>
+  <div class="actions"><button class="secondary" id="showExample">اظهر المثال</button><button class="primary" id="nextWord">الكلمة التالية ←</button></div>
+ </section>
+ <section id="talk" class="hidden">
+  <button class="back" data-home>← الرئيسية</button><h2>💬 محادثات يومية</h2><p class="muted">اقرأ الجملة بالألمانية ثم معناها بالعربية.</p>
+  <div class="panel"><strong>في المخبز — In der Bäckerei</strong>
+   <div class="item"><b>Verkäufer:</b> Guten Morgen! Was möchten Sie? <button class="voice speak" data-say="Guten Morgen! Was möchten Sie?">🔊 استمع</button><br><span class="muted">البائع: صباح الخير! ماذا تريد؟</span></div>
+   <div class="item"><b>Kunde:</b> Ich möchte zwei Brötchen, bitte. <button class="voice speak" data-say="Ich möchte zwei Brötchen, bitte.">🔊 استمع</button><br><span class="muted">الزبون: أريد قطعتين من الخبز الصغير، من فضلك.</span></div>
+   <div class="item"><b>Verkäufer:</b> Sonst noch etwas? <button class="voice speak" data-say="Sonst noch etwas?">🔊 استمع</button><br><span class="muted">البائع: هل تريد شيئاً آخر؟</span></div>
+   <div class="item"><b>Kunde:</b> Nein, danke. Was kostet das? <button class="voice speak" data-say="Nein, danke. Was kostet das?">🔊 استمع</button><br><span class="muted">الزبون: لا، شكراً. كم السعر؟</span></div>
+  </div>
+  <div class="panel"><strong>التعارف — Sich vorstellen</strong>
+   <div class="item"><b>Wie heißt du?</b> <button class="voice speak" data-say="Wie heißt du?">🔊 استمع</button><br><span class="muted">ما اسمك؟</span></div>
+   <div class="item"><b>Ich heiße Lina.</b> <button class="voice speak" data-say="Ich heiße Lina.">🔊 استمع</button><br><span class="muted">اسمي لينا.</span></div>
+   <div class="item"><b>Woher kommst du?</b> <button class="voice speak" data-say="Woher kommst du?">🔊 استمع</button><br><span class="muted">من أين أنت؟</span></div>
+   <div class="item"><b>Ich komme aus Syrien.</b> <button class="voice speak" data-say="Ich komme aus Syrien.">🔊 استمع</button><br><span class="muted">أنا من سوريا.</span></div>
+  </div>
+ </section>
+ <section id="grammar" class="hidden">
+  <button class="back" data-home>← الرئيسية</button><h2>✍️ القواعد</h2>
+  <div class="panel"><strong>1. أدوات التعريف: der, die, das</strong><p class="muted">في الألمانية لكل اسم جنس نحوي:</p><div class="item"><b>der</b> للمذكر: der Mann — الرجل</div><div class="item"><b>die</b> للمؤنث: die Frau — المرأة</div><div class="item"><b>das</b> للمحايد: das Kind — الطفل</div></div>
+  <div class="panel"><strong>2. فعل sein — يكون</strong><div class="item">ich bin — أنا أكون</div><div class="item">du bist — أنت تكون</div><div class="item">er/sie/es ist — هو/هي يكون</div><div class="item">wir sind — نحن نكون</div><div class="item">ihr seid — أنتم تكونون</div><div class="item">sie/Sie sind — هم/حضرتك يكونون</div></div>
+  <div class="panel"><strong>3. ترتيب الجملة البسيطة</strong><p class="muted">غالباً يأتي الفعل بالموقع الثاني في الجملة الخبرية.</p><div class="example"><b>Ich lerne Deutsch.</b><br>أنا أتعلم الألمانية.</div></div>
+ </section>
+ <section id="quiz" class="hidden">
+  <button class="back" data-home>← الرئيسية</button><h2>🎯 اختبر نفسك</h2><p class="muted">اختر الترجمة الصحيحة.</p>
+  <div class="panel"><div class="muted" id="quizProgress"></div><div class="question" id="quizQuestion"></div><div id="quizOptions"></div><div id="quizFeedback" class="muted"></div><button class="primary" id="nextQuestion">السؤال التالي</button></div>
+ </section>
+ <footer>DeutschWay 🇩🇪 · النسخة التجريبية الأولى</footer>
+</main>
+<nav>
+ <button class="active" data-tab="home"><b>⌂</b>الرئيسية</button>
+ <button data-tab="vocab"><b>📚</b>المفردات</button>
+ <button data-tab="talk"><b>💬</b>المحادثة</button>
+ <button data-tab="quiz"><b>🎯</b>الاختبار</button>
+</nav>
+<script>
+const vocab=[
+ {de:"das Haus",ar:"البيت",ex:"Das Haus ist groß.<br>البيت كبير."},
+ {de:"die Schule",ar:"المدرسة",ex:"Die Schule ist heute geschlossen.<br>المدرسة مغلقة اليوم."},
+ {de:"das Wasser",ar:"الماء",ex:"Ich trinke Wasser.<br>أنا أشرب الماء."},
+ {de:"der Freund",ar:"الصديق",ex:"Mein Freund ist nett.<br>صديقي لطيف."},
+ {de:"die Arbeit",ar:"العمل",ex:"Ich gehe zur Arbeit.<br>أنا ذاهب إلى العمل."},
+ {de:"essen",ar:"يأكل",ex:"Wir essen zusammen.<br>نحن نأكل معاً."},
+ {de:"lernen",ar:"يتعلّم",ex:"Ich lerne Deutsch.<br>أنا أتعلم الألمانية."},
+ {de:"heute",ar:"اليوم",ex:"Heute ist Montag.<br>اليوم يوم الاثنين."},
+ {de:"der Bahnhof",ar:"محطة القطار",ex:"Der Bahnhof ist dort.<br>محطة القطار هناك."},
+ {de:"schön",ar:"جميل",ex:"Das Wetter ist schön.<br>الطقس جميل."}
+];
+let wi=0,level="A1",qi=0,score=0,answered=false;
+const questions=[
+ {q:"Was bedeutet „Guten Morgen“?",a:["مساء الخير","صباح الخير","تصبح على خير"],c:1},
+ {q:"ما معنى „das Wasser“؟",a:["الخبز","الماء","الحليب"],c:1},
+ {q:"اختر الترجمة الصحيحة: Ich lerne Deutsch.",a:["أنا أتعلم الألمانية","أنا أعمل اليوم","أنا أحب القهوة"],c:0},
+ {q:"ما أداة التعريف لكلمة Frau؟",a:["der","das","die"],c:2},
+ {q:"ما معنى „Danke“؟",a:["من فضلك","شكراً","عفواً"],c:1}
+];
+function show(id){document.querySelectorAll("main section").forEach(s=>s.classList.add("hidden"));document.getElementById(id).classList.remove("hidden");document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("active",b.dataset.tab===id));window.scrollTo(0,0)}
+document.querySelectorAll("[data-open],[data-tab]").forEach(b=>b.addEventListener("click",()=>show(b.dataset.open||b.dataset.tab)));
+document.querySelectorAll("[data-home]").forEach(b=>b.addEventListener("click",()=>show("home")));
+document.querySelectorAll(".level").forEach(b=>b.addEventListener("click",()=>{level=b.dataset.level;document.querySelectorAll(".level").forEach(x=>x.classList.toggle("active",x===b))}));
+function speakGerman(text){if(!("speechSynthesis" in window)){alert("ميزة النطق غير مدعومة في هذا المتصفح. جرّب فتح التطبيق عبر Chrome.");return;}window.speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(text);u.lang="de-DE";u.rate=0.88;let vs=window.speechSynthesis.getVoices();let german=vs.find(v=>v.lang&&v.lang.toLowerCase().startsWith("de"));if(german)u.voice=german;window.speechSynthesis.speak(u)}
+document.getElementById("speakWord").onclick=()=>speakGerman(vocab[wi].de);
+document.addEventListener("click",e=>{let b=e.target.closest(".speak");if(b)speakGerman(b.dataset.say)});
+function renderWord(){let w=vocab[wi];document.getElementById("wordCount").textContent=`${wi+1} من ${vocab.length} · ${level}`;document.getElementById("wordDe").textContent=w.de;document.getElementById("wordAr").textContent=w.ar;document.getElementById("wordExample").classList.add("hidden");document.getElementById("wordExample").innerHTML=w.ex}
+document.getElementById("showExample").onclick=()=>document.getElementById("wordExample").classList.toggle("hidden");
+document.getElementById("nextWord").onclick=()=>{wi=(wi+1)%vocab.length;renderWord()};renderWord();
+function renderQuiz(){answered=false;let q=questions[qi];document.getElementById("quizProgress").textContent=`السؤال ${qi+1} من ${questions.length} · النقاط ${score}`;document.getElementById("quizQuestion").textContent=q.q;document.getElementById("quizFeedback").textContent="";document.getElementById("nextQuestion").textContent=qi===questions.length-1?"إنهاء الاختبار":"السؤال التالي";let box=document.getElementById("quizOptions");box.innerHTML="";q.a.forEach((a,i)=>{let b=document.createElement("button");b.className="option";b.textContent=a;b.onclick=()=>{if(answered)return;answered=true;if(i===q.c){score++;b.classList.add("correct");document.getElementById("quizFeedback").textContent="أحسنت! إجابة صحيحة 👏"}else{b.classList.add("wrong");box.children[q.c].classList.add("correct");document.getElementById("quizFeedback").textContent="حاول مرة أخرى في السؤال القادم."}};box.appendChild(b)})}
+document.getElementById("nextQuestion").onclick=()=>{if(qi===questions.length-1){document.getElementById("quizQuestion").textContent=`انتهى الاختبار! نتيجتك ${score} من ${questions.length}.`;document.getElementById("quizOptions").innerHTML="";document.getElementById("quizFeedback").textContent="يمكنك إعادة الاختبار والتمرّن من جديد.";document.getElementById("nextQuestion").textContent="إعادة الاختبار";document.getElementById("nextQuestion").onclick=()=>{qi=0;score=0;document.getElementById("nextQuestion").onclick=nextQuiz;renderQuiz()};}else{qi++;renderQuiz()}};
+function nextQuiz(){qi++;renderQuiz()}
+renderQuiz();
+</script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js').catch(() => {}));
+}
+</script>
+
+</body></html>

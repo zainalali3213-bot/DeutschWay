@@ -1,0 +1,25 @@
+{
+  "name": "DeutschWay - تعلم الألمانية",
+  "short_name": "DeutschWay",
+  "description": "تعلم اللغة الألمانية من A1 إلى B2 باللغة العربية",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f8ff",
+  "theme_color": "#245587",
+  "lang": "ar",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
